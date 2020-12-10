@@ -1,0 +1,217 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script
+        type="text/javascript">(window.NREUM || (NREUM = {})).loader_config = { licenseKey: "3abbc522db", applicationID: "155864920" }; window.NREUM || (NREUM = {}), __nr_require = function (e, t, n) { function r(n) { if (!t[n]) { var i = t[n] = { exports: {} }; e[n][0].call(i.exports, function (t) { var i = e[n][1][t]; return r(i || t) }, i, i.exports) } return t[n].exports } if ("function" == typeof __nr_require) return __nr_require; for (var i = 0; i < n.length; i++)r(n[i]); return r }({ 1: [function (e, t, n) { function r() { } function i(e, t, n) { return function () { return o(e, [u.now()].concat(c(arguments)), t ? null : this, n), t ? void 0 : this } } var o = e("handle"), a = e(6), c = e(7), f = e("ee").get("tracer"), u = e("loader"), s = NREUM; "undefined" == typeof window.newrelic && (newrelic = s); var d = ["setPageViewName", "setCustomAttribute", "setErrorHandler", "finished", "addToTrace", "inlineHit", "addRelease"], p = "api-", l = p + "ixn-"; a(d, function (e, t) { s[t] = i(p + t, !0, "api") }), s.addPageAction = i(p + "addPageAction", !0), s.setCurrentRouteName = i(p + "routeName", !0), t.exports = newrelic, s.interaction = function () { return (new r).get() }; var m = r.prototype = { createTracer: function (e, t) { var n = {}, r = this, i = "function" == typeof t; return o(l + "tracer", [u.now(), e, n], r), function () { if (f.emit((i ? "" : "no-") + "fn-start", [u.now(), r, i], n), i) try { return t.apply(this, arguments) } catch (e) { throw f.emit("fn-err", [arguments, this, e], n), e } finally { f.emit("fn-end", [u.now()], n) } } } }; a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","), function (e, t) { m[t] = i(l + t) }), newrelic.noticeError = function (e, t) { "string" == typeof e && (e = new Error(e)), o("err", [e, u.now(), !1, t]) } }, {}], 2: [function (e, t, n) { function r() { return c.exists && performance.now ? Math.round(performance.now()) : (o = Math.max((new Date).getTime(), o)) - a } function i() { return o } var o = (new Date).getTime(), a = o, c = e(8); t.exports = r, t.exports.offset = a, t.exports.getLastTimestamp = i }, {}], 3: [function (e, t, n) { function r(e, t) { var n = e.getEntries(); n.forEach(function (e) { "first-paint" === e.name ? d("timing", ["fp", Math.floor(e.startTime)]) : "first-contentful-paint" === e.name && d("timing", ["fcp", Math.floor(e.startTime)]) }) } function i(e, t) { var n = e.getEntries(); n.length > 0 && d("lcp", [n[n.length - 1]]) } function o(e) { e.getEntries().forEach(function (e) { e.hadRecentInput || d("cls", [e]) }) } function a(e) { if (e instanceof m && !g) { var t = Math.round(e.timeStamp), n = { type: e.type }; t <= p.now() ? n.fid = p.now() - t : t > p.offset && t <= Date.now() ? (t -= p.offset, n.fid = p.now() - t) : t = p.now(), g = !0, d("timing", ["fi", t, n]) } } function c(e) { d("pageHide", [p.now(), e]) } if (!("init" in NREUM && "page_view_timing" in NREUM.init && "enabled" in NREUM.init.page_view_timing && NREUM.init.page_view_timing.enabled === !1)) { var f, u, s, d = e("handle"), p = e("loader"), l = e(5), m = NREUM.o.EV; if ("PerformanceObserver" in window && "function" == typeof window.PerformanceObserver) { f = new PerformanceObserver(r); try { f.observe({ entryTypes: ["paint"] }) } catch (v) { } u = new PerformanceObserver(i); try { u.observe({ entryTypes: ["largest-contentful-paint"] }) } catch (v) { } s = new PerformanceObserver(o); try { s.observe({ type: "layout-shift", buffered: !0 }) } catch (v) { } } if ("addEventListener" in document) { var g = !1, y = ["click", "keydown", "mousedown", "pointerdown", "touchstart"]; y.forEach(function (e) { document.addEventListener(e, a, !1) }) } l(c) } }, {}], 4: [function (e, t, n) { function r(e, t) { if (!i) return !1; if (e !== i) return !1; if (!t) return !0; if (!o) return !1; for (var n = o.split("."), r = t.split("."), a = 0; a < r.length; a++)if (r[a] !== n[a]) return !1; return !0 } var i = null, o = null, a = /Version\/(\S+)\s+Safari/; if (navigator.userAgent) { var c = navigator.userAgent, f = c.match(a); f && c.indexOf("Chrome") === -1 && c.indexOf("Chromium") === -1 && (i = "Safari", o = f[1]) } t.exports = { agent: i, version: o, match: r } }, {}], 5: [function (e, t, n) { function r(e) { function t() { e(a && document[a] ? document[a] : document[i] ? "hidden" : "visible") } "addEventListener" in document && o && document.addEventListener(o, t, !1) } t.exports = r; var i, o, a; "undefined" != typeof document.hidden ? (i = "hidden", o = "visibilitychange", a = "visibilityState") : "undefined" != typeof document.msHidden ? (i = "msHidden", o = "msvisibilitychange") : "undefined" != typeof document.webkitHidden && (i = "webkitHidden", o = "webkitvisibilitychange", a = "webkitVisibilityState") }, {}], 6: [function (e, t, n) { function r(e, t) { var n = [], r = "", o = 0; for (r in e) i.call(e, r) && (n[o] = t(r, e[r]), o += 1); return n } var i = Object.prototype.hasOwnProperty; t.exports = r }, {}], 7: [function (e, t, n) { function r(e, t, n) { t || (t = 0), "undefined" == typeof n && (n = e ? e.length : 0); for (var r = -1, i = n - t || 0, o = Array(i < 0 ? 0 : i); ++r < i;)o[r] = e[t + r]; return o } t.exports = r }, {}], 8: [function (e, t, n) { t.exports = { exists: "undefined" != typeof window.performance && window.performance.timing && "undefined" != typeof window.performance.timing.navigationStart } }, {}], ee: [function (e, t, n) { function r() { } function i(e) { function t(e) { return e && e instanceof r ? e : e ? f(e, c, o) : o() } function n(n, r, i, o) { if (!p.aborted || o) { e && e(n, r, i); for (var a = t(i), c = v(n), f = c.length, u = 0; u < f; u++)c[u].apply(a, r); var d = s[w[n]]; return d && d.push([b, n, r, a]), a } } function l(e, t) { h[e] = v(e).concat(t) } function m(e, t) { var n = h[e]; if (n) for (var r = 0; r < n.length; r++)n[r] === t && n.splice(r, 1) } function v(e) { return h[e] || [] } function g(e) { return d[e] = d[e] || i(n) } function y(e, t) { u(e, function (e, n) { t = t || "feature", w[n] = t, t in s || (s[t] = []) }) } var h = {}, w = {}, b = { on: l, addEventListener: l, removeEventListener: m, emit: n, get: g, listeners: v, context: t, buffer: y, abort: a, aborted: !1 }; return b } function o() { return new r } function a() { (s.api || s.feature) && (p.aborted = !0, s = p.backlog = {}) } var c = "nr@context", f = e("gos"), u = e(6), s = {}, d = {}, p = t.exports = i(); p.backlog = s }, {}], gos: [function (e, t, n) { function r(e, t, n) { if (i.call(e, t)) return e[t]; var r = n(); if (Object.defineProperty && Object.keys) try { return Object.defineProperty(e, t, { value: r, writable: !0, enumerable: !1 }), r } catch (o) { } return e[t] = r, r } var i = Object.prototype.hasOwnProperty; t.exports = r }, {}], handle: [function (e, t, n) { function r(e, t, n, r) { i.buffer([e], r), i.emit(e, t, n) } var i = e("ee").get("handle"); t.exports = r, r.ee = i }, {}], id: [function (e, t, n) { function r(e) { var t = typeof e; return !e || "object" !== t && "function" !== t ? -1 : e === window ? 0 : a(e, o, function () { return i++ }) } var i = 1, o = "nr@id", a = e("gos"); t.exports = r }, {}], loader: [function (e, t, n) { function r() { if (!E++) { var e = b.info = NREUM.info, t = p.getElementsByTagName("script")[0]; if (setTimeout(u.abort, 3e4), !(e && e.licenseKey && e.applicationID && t)) return u.abort(); f(h, function (t, n) { e[t] || (e[t] = n) }); var n = a(); c("mark", ["onload", n + b.offset], null, "api"), c("timing", ["load", n]); var r = p.createElement("script"); r.src = "https://" + e.agent, t.parentNode.insertBefore(r, t) } } function i() { "complete" === p.readyState && o() } function o() { c("mark", ["domContent", a() + b.offset], null, "api") } var a = e(2), c = e("handle"), f = e(6), u = e("ee"), s = e(4), d = window, p = d.document, l = "addEventListener", m = "attachEvent", v = d.XMLHttpRequest, g = v && v.prototype; NREUM.o = { ST: setTimeout, SI: d.setImmediate, CT: clearTimeout, XHR: v, REQ: d.Request, EV: d.Event, PR: d.Promise, MO: d.MutationObserver }; var y = "" + location, h = { beacon: "bam.nr-data.net", errorBeacon: "bam.nr-data.net", agent: "js-agent.newrelic.com/nr-1184.min.js" }, w = v && g && g[l] && !/CriOS/.test(navigator.userAgent), b = t.exports = { offset: a.getLastTimestamp(), now: a, origin: y, features: {}, xhrWrappable: w, userAgent: s }; e(1), e(3), p[l] ? (p[l]("DOMContentLoaded", o, !1), d[l]("load", r, !1)) : (p[m]("onreadystatechange", i), d[m]("onload", r)), c("mark", ["firstbyte", a.getLastTimestamp()], null, "api"); var E = 0 }, {}], "wrap-function": [function (e, t, n) { function r(e) { return !(e && e instanceof Function && e.apply && !e[a]) } var i = e("ee"), o = e(7), a = "nr@original", c = Object.prototype.hasOwnProperty, f = !1; t.exports = function (e, t) { function n(e, t, n, i) { function nrWrapper() { var r, a, c, f; try { a = this, r = o(arguments), c = "function" == typeof n ? n(r, a) : n || {} } catch (u) { p([u, "", [r, a, i], c]) } s(t + "start", [r, a, i], c); try { return f = e.apply(a, r) } catch (d) { throw s(t + "err", [r, a, d], c), d } finally { s(t + "end", [r, a, f], c) } } return r(e) ? e : (t || (t = ""), nrWrapper[a] = e, d(e, nrWrapper), nrWrapper) } function u(e, t, i, o) { i || (i = ""); var a, c, f, u = "-" === i.charAt(0); for (f = 0; f < t.length; f++)c = t[f], a = e[c], r(a) || (e[c] = n(a, u ? c + i : i, o, c)) } function s(n, r, i) { if (!f || t) { var o = f; f = !0; try { e.emit(n, r, i, t) } catch (a) { p([a, n, r, i]) } f = o } } function d(e, t) { if (Object.defineProperty && Object.keys) try { var n = Object.keys(e); return n.forEach(function (n) { Object.defineProperty(t, n, { get: function () { return e[n] }, set: function (t) { return e[n] = t, t } }) }), t } catch (r) { p([r]) } for (var i in e) c.call(e, i) && (t[i] = e[i]); return t } function p(t) { try { e.emit("internal-error", t) } catch (n) { } } return e || (e = i), n.inPlace = u, n.flag = a, n } }, {}] }, {}, ["loader"]);</script>
+    <title>개인정보 처리방침</title>
+</head>
+
+<body>
+    <h1 id="">개인정보 처리방침 </h1>
+
+    <div class="container">
+        <p>'(주)JN'는 (이하 '회사'라 합니다.) 이용자의 개인정보를 중요하게 생각합니다. 회사는 정보통신망 이용촉진 및 정보보호 등에 관한 법률, 전기통신사업법, 통신비밀보호법 등 개인정보와 관련된
+            법령 상의 개인정보 보호 규정 및 방송통신위원회가 제정한 개인정보보호지침을 준수하고 있습니다.</p>
+        <p>개인정보처리방침을 통하여 이용자가 회사에 제공하는 정보가 어떠한 용도와 방식으로 이용되고 있으며, 보호되고 있는지 알려드리고자 합니다.</p>
+
+        <h2>1. 수집하는 개인 정보 항목</h2>
+        <p>회사는 최초 회원가입 및 원활한 고객상담, 기타 각종 서비스 등 서비스 제공을 위한 필수정보를 수집하고 있습니다. 그리고 고객 맞춤서비스 제공, 회사에서 제공한 다양한 서비스를 제공하기 위하여
+            선택항목을 수집하고 있습니다.</p>
+
+        <ul>
+            <li>1) 수집항목</li>
+            <ul>
+                <li>1. 필수항목 : 전화번호, 성별, 닉네임, 생년, 사진</li>
+                <li>2. 선택항목 : 직업, 혈액형, 지역, 키, 체형, 종교, 음주, 흡연 여부, 위치정보</li>
+                <li>3.서비스 이용 과정이나 서비스 제공 업무 처리 과정에서 다음과 같은 정보들이 자동으로 생성되어 수집될 수 있습니다. 서비스 이용기록, 접속 로그(방문 일시), 쿠키, 기기 고유
+                    식별번호(기기 아이디 혹은 IMEI), 접속 IP주소 정보, 불량 이용 기록</li>
+            </ul>
+            <li>2) 개인정보 수집방법</li>
+            <ul>
+                <li>홈페이지, 모바일앱, 모바일웹의 회원가입, 서면양식, 팩스, 전화, 서비스 이용, 피드백 페이지 및 이메일, 이벤트 응모, 생성정보 수집 도구를 통한 수집, 회원정보수정 등을
+                    통하여 수집</li>
+            </ul>
+            <li>3) 수집에 대한 동의 </li>
+            <ul>
+                <li>모든 회원이 회사로부터 서비스를 제공받기 위해서는 회원의 개인정보가 필요하며 개인정보는 회원가입 시 회원가입양식에 가입신청자의 동의를 통해 수집됩니다.</li>
+            </ul>
+            <li>4) 귀하가 우리에게 제공하기로 선택한 일부 정보는 귀하의 인종 또는 민족 출신, 성적 취향 및 종교적 신념과 같이 특정 관할 지역에서 "특별"또는 "민감한"것으로 간주 될 수 있습니다.
+                이 정보를 제공함으로써 귀하는 해당 정보를 처리하는 데 동의하게 됩니다.</li>
+        </ul>
+
+        <h2>2. 개인정보의 수집 및 이용목적</h2>
+        <p>회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다. 이용자가 제공한 모든 정보는 하기 목적에 필요한 용도 이외로는 사용되지 않으며 이용 목적이 변경될 시에는 사전 동의를 구할 것입니다.
+        </p>
+
+        <ul>
+            <li>1) 기본 기능 제공</li>
+            <ul>
+                <li>매칭, 메시지 등의 기본 기능 서비스를 제공하기 위함</li>
+            </ul>
+            <li>2) 회원 식별 및 회원 관리</li>
+            <ul>
+                <li>본인 확인 및 식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확인, 불만처리 등 민원처리, 고지사항 전달</li>
+            </ul>
+            <li>3) 마케팅 및 광고에 활용</li>
+            <ul>
+                <li>신규 서비스 개발과 이벤트 행사에 따른 정보 전달 및 맞춤 서비스 제공, 인구통계학적 특성에 따른 서비스 제공 및 광고 게재, 접속 빈도 파악 또는 회원의 서비스 이용에 대한 통계
+                </li>
+            </ul>
+            <li>4) 서비스 공지 및 알림</li>
+            <ul>
+                <li>회사가 제공하는 서비스에 중요한 변경, 개선 등 회원이 알고 있어야 한다고 판단되는 정보에 대한 전송</li>
+            </ul>
+        </ul>
+
+        <h2>3. 개인정보의 보유 및 이용기간</h2>
+        <p>회사는 회원이 가입신청으로 가입한 날로부터 서비스를 제공하는 기간 동안에 한하여 이용자의 개인정보를 보유 및 이용하게 됩니다. 개인정보의 수집 및 이용에 대한 동의를 철회하는 경우, 수집 및
+            이용목적이 달성되거나 보유 및 이용기간이 종료한 경우 해당 개인정보를 지체 없이 파기합니다. 이 경우 개인정보는 어떠한 용도로도 열람 또는 이용할 수 없도록 처리됩니다.
+            단, 다음의 정보에 대해서는 아래의 이유로 명시한 기간 동안 보존합니다.</p>
+
+        <ul>
+            <li>보존 항목: 이름, 별명, 성별, 생년, 거주지, 내 소개, 사진, 직업</li>
+            <li>보존 근거: 서비스 이용의 혼선 방지, 불법적 사용자에 대한 관련 기관 수사협조</li>
+            <li>보존 기간: 1년</li>
+            <li>관계법령의 규정에 의하여 보존할 필요가 있는 경우 회사는 아래와 같이 관계법령에서 정한 일정한 기간 동안 회원정보를 보관합니다.</li>
+            <li>보존 항목: 서비스 이용기록, 접속 로그, 접속 IP 정보</li>
+            <li>보존 근거: 통신비밀보호법</li>
+            <li>보존 기간: 3개월</li>
+            <li>표시/광고에 관한 기록: 6개월 (전자상거래등에서의 소비자보호에 관한 법률)</li>
+            <li>계약 또는 청약철회 등에 관한 기록: 5년 (전자상거래등에서의 소비자보호에 관한 법률)</li>
+            <li>대금결제 및 재화 등의 공급에 관한 기록: 5년 (전자상거래등에서의 소비자보호에 관한 법률)</li>
+            <li>소비자의 불만 또는 분쟁처리에 관한 기록: 3년(전자상거래등에서의 소비자보호에 관한 법률)</li>
+        </ul>
+
+        <h2>4. 개인정보의 취급위탁</h2>
+        <p>회사는 동의 없이 귀하의 개인정보를 외부에 위탁처리 하지 않습니다 하지만 서비스 향상 및 안정적인 개인정보 취급을 위해서 귀하의 개인정보를 외부에 위탁하여 처리할 수 있습니다.</p>
+        <p>개인정보의 처리를 위탁하는 경우에는 위탁계약 등을 통하여 서비스제공자의 개인정보보호 관련 지시엄수, 개인정보에 관한 비밀유지, 제3자 제공의 금지 및 사고시의 책임부담 등을 명확히 규정하고 당해
+            계약내용을 서면 또는 전자적으로 보관하겠습니다.</p>
+        <p>현재 회원에 대하여 질 높은 서비스 제공 등을 위해 사전에 동의를 획득한 경우에 한하여 아래와 같이 회원의 개인정보를 위탁하고 있습니다.</p>
+        <ul>
+            <li>수탁업체 및 위탁업무 내용</li>
+            <ul>
+                <li>Google Web Services Inc. - 계정 정보 저장</li>
+            </ul>
+        </ul>
+
+        <h2>5. 개인정보의 파기절차 및 방법</h2>
+        <p>회사는 원칙적으로 개인정보 수집 및 이용목적이 달성된 후에는 해당 정보를 지체 없이 파기합니다.</p>
+
+        <h2>6. 개인정보 제공</h2>
+        <p>회사는 이용자들의 개인정보를 “개인정보의 수집목적 및 이용목적"에서 고지한 범위 내에서 사용하며, 이용자의 사전 동의 없이는 동 범위를 초과하여 이용하거나 원칙적으로 이용자의 개인정보를 외부에
+            제공하지 않습니다. 또한 귀하의 동의 없이 제3자 또는 기업, 기관에 제공하지 않습니다. 단, 다음의 경우에는 주의를 기울여 개인정보를 이용 및 제공할 수 있습니다.</p>
+
+        <ul>
+            <li>• 이용자들이 사전에 공개에 동의한 경우</li>
+            <li>• 서비스의 제공에 관한 계약의 이행을 위하여 필요한 개인정보로서 경제적/기술적인 사유로 통상의 동의를 받는 것이 현저히 곤란한 경우</li>
+            <li>• 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
+            <li>• 회사에서 제공하는 새로운 서비스를 운영함에 있어서 필요한 경우</li>
+            <li>• 통계작성, 학술연구나 시장조사를 위하여 특정 개인을 식별할 수 없는 형태로 광고주, 협력사나 연구단체 등에 제공하는 경우</li>
+            <li>• 기타 관계법령에서 정한 절차에 따른 요청이 있는 경우</li>
+        </ul>
+
+        <p>그러나 예외 사항에서도 관계법령에 의하거나 수사기관의 요청에 의해 정보를 제공한 경우에는 이를 당사자에게 고지하는 것을 원칙으로 운영하고 있습니다. 법률상의 근거에 의해 부득이하게 고지를 하지
+            못할 수도 있습니다. 본래의 수집목적 및 이용목적에 반하여 무분별하게 정보가 제공되지 않도록 최대한 노력하겠습니다.</p>
+
+        <h2>7. 개인정보 자동수집 장치의 설치, 운영 및 그 거부에 관한 사항</h2>
+        <p>회사는 이용자에게 특화된 맞춤서비스를 제공하기 위해서 이용자들의 정보를 수시로 저장하고 찾아내는 '쿠키(cookie)' 등을 운용합니다. 쿠키란 웹사이트를 운영하는데 이용되는 서버가 이용자의
+            브라우저에 보내는 아주 작은 텍스트 파일로서 이용자의 컴퓨터 하드디스크에 저장되기도 합니다. 회사는 다음과 같은 목적을 위해 쿠키를 사용합니다.</p>
+
+        <ul>
+            <li>쿠키 등 사용 목적</li>
+            <ul>
+                <li>회원과 비회원의 접속 빈도나 방문 시간 등을 분석, 이용자의 취향과 관심분야를 파악 및 자취 추적, 각종 이벤트 참여 정도 및 방문 회수 파악 등을 통한 타깃 마케팅 및 개인 맞춤
+                    서비스 제공 이용자는 쿠키 설치에 대한 선택권을 가지고 있습니다. 따라서, 이용자는 웹 브라우저에서 옵션을 설정함으로써 모든 쿠키를 허용하거나, 쿠키가 저장될 때마다 확인을
+                    거치거나, 아니면 모든 쿠키의 저장을 거부할 수도 있습니다.</li>
+            </ul>
+            <li>쿠키 설정 거부 방법</li>
+            <ul>
+                <li>예: 쿠키 설정을 거부하는 방법으로는 이용자가 사용하는 웹 브라우저의 옵션을 선택함으로써 모든 쿠키를 허용하거나 쿠키를 저장할 때마다 확인을 거치거나, 모든 쿠키의 저장을 거부할
+                    수 있습니다.</li>
+                <li>설정방법 예(인터넷 익스플로어의 경우) : 웹 브라우저 상단의 도구 &gt; 인터넷 옵션 &gt; 개인정보</li>
+                <li>단, 쿠키 설치를 거부하였을 경우 로그인이 필요한 일부 서비스 이용에 어려움이 있을 수 있습니다.</li>
+            </ul>
+        </ul>
+
+        <h2>8. 청소년 보호정책</h2>
+        <p>회사는 청소년에게 유해한 각종 정보로부터 청소년을 보호하고자 관련 법률에 따라 19세 미만의 청소년들이 유해정보에 접근할 수 없도록 청소년보호정책을 마련하여 시행하고 있습니다. 또한 회사는
+            청소년의 건전한 성장을 저해하는 음란, 불법 등의 유해정보와 비윤리적, 반사회적 행위에 대해서는 엄격하게 제재하기 위하여 다름과 같이 활동하고 있습니다.</p>
+        <ul>
+            <li>• 청소년유해정보로부터의 청소년보호계획의 수립</li>
+            <li>• 청소년유해정보에 대한 청소년접근제한 및 관리조치</li>
+            <li>• 정보통신업무 종사자에 대한 청소년유해정보로부터의 청소년보호를 위한 교육</li>
+            <li>• 청소년유해정보로 인한 피해상담 및 고충처리</li>
+            <li>• 그 밖에 청소년유해정보로부터 청소년을 보호하기 위하여 필요한 사항</li>
+        </ul>
+
+        <h2>10. 개인정보의 기술적, 관리적 보호 대책</h2>
+        <p>회사는 이용자의 개인정보를 취급함에 있어 개인정보가 분실, 도난, 누출, 변조 또는 훼손되지 않도록 안정성 확보를 위하여 다음과 같은 기술적, 관리적 대책을 강구하고 있습니다.</p>
+
+        <ul>
+            <li>1) 개인정보 암호화</li>
+            <ul>
+                <li>이용자의 개인정보는 비밀번호에 의해 보호되며, 중요한 데이터는 파일 및 전송 데이터를 암호화하거나 파일 잠금 기능을 사용하는 등의 별도 보안기능을 통해 보호 하고 있습니다.
+                </li>
+            </ul>
+            <li>2) 해킹 등에 대비한 기술적 대책</li>
+            <ul>
+                <li>회사는 해킹이나 컴퓨터 바이러스 등에 의해 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 외부로부터 접근이 통제된 구역에 시스템을 설치하고, 침입 차단장치 이용 및 침입
+                    탐지시스템을 설치하여 24시간 감시하고 있습니다. </li>
+            </ul>
+            <li>3) 개인정보처리시스템 접근 제한</li>
+            <ul>
+                <li>회사는 개인정보를 처리할 수 있도록 체계적으로 구성한 데이터베이스시스템에 대한 접근권한의 부여, 변경, 말소 등에 관한 기준을 수립하고 비밀번호의 생성 방법, 변경 주기 등을 규정
+                    운영하며 기타 개인정보에 대한 접근통제를 위해 필요한 조치를 다하고 있습니다.</li>
+            </ul>
+            <li>4) 개인정보 취급 직원의 교육</li>
+            <ul>
+                <li>개인정보관련 취급 직원은 담당자에 한정시켜 최소화 하고 새로운 보안기술의 습득 및 개인정보 보호 의무에 관해 정기적인 교육을 실시하며 별도의 비밀번호를 부여하여 접근 권한을
+                    관리하는 등 관리적 대책을 시행하고 있습니다.</li>
+            </ul>
+            <li>5) 개인 아이디와 비밀번호 관리</li>
+            <ul>
+                <li>이용자가 사용하는 ID와 비밀번호는 원칙적으로 이용자만이 사용하도록 되어 있습니다. 회사는 이용자의 개인적인 부주의로 ID, 비밀번호, 이메일 등 개인정보가 유출되어 발생한 문제와
+                    기본적인 인터넷의 위험성 때문에 일어나는 일들에 대해 책임을 지지 않습니다.비밀번호에 대한 보안 의식을 가지고 비밀번호를 자주 변경하며 공용PC에서의 로그인시 개인정보가 유출되지
+                    않도록 각별한 주의를 기울여 주시기 바랍니다.</li>
+            </ul>
+        </ul>
+
+        <h2>11. 이용자 및 법정대리인의 권리와 그 행사방법</h2>
+        <p>이용자 및 법정 대리인은 언제든지 등록되어 있는 자신 혹은 당해 만 14세 미만 아동의 개인정보를 조회하거나 수정할 수 있으며, 회사의 개인정보의 처리에 동의하지 않는 경우 동의를 거부하거나
+            가입해지(회원탈퇴)를 요청하실 수 있습니다. 다만, 그러한 경우 서비스의 일부 또는 전부 이용이 어려울 수 있습니다.</p>
+        <p>이용자 혹은 만 14세 미만 아동의 개인정보 조회, 수정을 위해서는 '개인정보변경'(또는 '회원정보수정' 등)을, 가입해지(동의철회)를 위해서는 "회원탈퇴"를 클릭하여 계약 해지 및 탈퇴가
+            가능합니다.</p>
+        <p>혹은 개인정보관리책임자에게 서면, 전화 또는 이메일로 연락하시면 지체 없이 조치하겠습니다.</p>
+        <p>이용자가 개인정보의 오류에 대한 정정을 요청하신 경우에는 정정을 완료하기 전까지 당해 개인정보를 이용 또는 제공하지 않습니다. 또한 잘못된 개인정보를 제3 자에게 이미 제공한 경우에는 정정
+            처리결과를 제3자에게 지체 없이 통지하여 정정이 이루어지도록 하겠습니다.</p>
+        <p>회사는 이용자 혹은 법정 대리인의 요청에 의해 해지 또는 삭제된 개인정보는 "3. 개인정보의 보유 및 이용기간"에 명시된 바에 따라 처리하고 그 외의 용도로 열람 또는 이용할 수 없도록 처리하고
+            있습니다.</p>
+
+        <h2>12. 개인정보에 관한 민원서비스</h2>
+        <p>회사는 고객의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 개인정보관리담당자를 지정하고 있습니다.</p>
+        <p>이용자는 회사의 서비스를 이용하시며 발생하는 모든 개인정보보호 관련 민원을 개인정보관리책임자로 신고하실 수 있습니다. 회사는 이용자들의 신고사항에 대해 신속하게 충분한 답변을 드릴 것입니다.
+        </p>
+
+        <ul>
+            <li>• 개인정보 관리책임자 및 담당자</li>
+            <li>• 성명 : 김춘기</li>
+            <li>• 메일 : eastnest@naver.com</li>
+        </ul>
+
+        <p>기타 개인정보침해에 대한 신고나 상담이 필요하신 경우에는 아래 기관에 문의하시기 바랍니다.</p>
+        <ul>
+            <li>• 개인분쟁조정위원회 (1336)</li>
+            <li>• 정보보호마크인증위원회 (02-580-0533~4)</li>
+            <li>• 대검찰청 인터넷범죄수사센터 (02-3480-3600)</li>
+            <li>• 경찰청 사이버테러대응센터 (02-392-0330)</li>
+        </ul>
+
+        <h2>13. 부칙</h2>
+        <p>이 개인정보처리방침은 2020년 12월 1일부터 적용되며, 법령. 정책 또는 보안기술의 변경에 따라 내용의 추가, 삭제 및 수정이 있을 시에는 변경사항의 시행일의 7일 전부터 서비스 내의
+            공지사항을 통하여 고지할 것 입니다. 이용자가 해당 일 이후에도 서비스를 계속 이용함으로써 변경된 방침에 동의하는 것으로 간주됩니다.</p>
+    </div>
+
+</body>
+
+</html>
